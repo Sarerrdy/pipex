@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eina <eina@student.42vienna.com>           +#+  +:+       +#+        */
+/*   By: eina <eina@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 03:07:21 by eina              #+#    #+#             */
-/*   Updated: 2026/02/03 14:50:59 by eina             ###   ########.fr       */
+/*   Created: 2025/10/07 15:53:38 by eina              #+#    #+#             */
+/*   Updated: 2025/10/11 11:41:03 by eina             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	error_exit(char *msg)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	perror(msg);
-	exit(EXIT_FAILURE);
+	size_t	i;
+
+	i = 0;
+	if (size > 0)
+	{
+		while (i < size - 1 && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	while (src[i])
+		i++;
+	return (i);
 }

@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eina <eina@student.42vienna.com>           +#+  +:+       +#+        */
+/*   By: eina <eina@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 03:07:21 by eina              #+#    #+#             */
-/*   Updated: 2026/02/03 14:50:59 by eina             ###   ########.fr       */
+/*   Created: 2025/10/11 11:36:43 by eina              #+#    #+#             */
+/*   Updated: 2025/10/11 11:36:48 by eina             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	error_exit(char *msg)
+char	*ft_strdup(const char *s)
 {
-	perror(msg);
-	exit(EXIT_FAILURE);
+	char	*newstr;
+	char	*dup;
+
+	newstr = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	dup = newstr;
+	if (!newstr)
+		return (NULL);
+	while (*s)
+	{
+		*newstr++ = *s++;
+	}
+	*newstr = '\0';
+	return (dup);
 }

@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eina <eina@student.42vienna.com>           +#+  +:+       +#+        */
+/*   By: eina <eina@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 03:07:21 by eina              #+#    #+#             */
-/*   Updated: 2026/02/03 14:50:59 by eina             ###   ########.fr       */
+/*   Created: 2025/10/07 15:55:58 by eina              #+#    #+#             */
+/*   Updated: 2025/10/11 11:41:17 by eina             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	error_exit(char *msg)
+size_t	ft_strlen(const char *s)
 {
-	perror(msg);
-	exit(EXIT_FAILURE);
+	int	count;
+
+	count = 0;
+	while (s[count])
+		count++;
+	return (count);
 }

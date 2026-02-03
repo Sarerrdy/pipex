@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eina <eina@student.42vienna.com>           +#+  +:+       +#+        */
+/*   By: eina <eina@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 03:07:21 by eina              #+#    #+#             */
-/*   Updated: 2026/02/03 14:50:59 by eina             ###   ########.fr       */
+/*   Created: 2025/10/11 11:29:12 by eina              #+#    #+#             */
+/*   Updated: 2025/10/11 11:29:56 by eina             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	error_exit(char *msg)
+void	ft_putendl_fd(char *s, int fd)
 {
-	perror(msg);
-	exit(EXIT_FAILURE);
+	if (!s)
+		return ;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

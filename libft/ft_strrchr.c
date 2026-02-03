@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eina <eina@student.42vienna.com>           +#+  +:+       +#+        */
+/*   By: eina <eina@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 03:07:21 by eina              #+#    #+#             */
-/*   Updated: 2026/02/03 14:50:59 by eina             ###   ########.fr       */
+/*   Created: 2025/10/07 15:59:00 by eina              #+#    #+#             */
+/*   Updated: 2025/10/11 11:46:09 by eina             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	error_exit(char *msg)
+char	*ft_strrchr(const char *s, int c)
 {
-	perror(msg);
-	exit(EXIT_FAILURE);
+	int	i;
+
+	i = ft_strlen(s);
+	if ((char)c == '\0')
+	{
+		return ((char *)&s[i]);
+	}
+	while (--i >= 0)
+	{
+		if (s[i] == (char)c)
+		{
+			return ((char *)&s[i]);
+		}
+	}
+	return (0);
 }
