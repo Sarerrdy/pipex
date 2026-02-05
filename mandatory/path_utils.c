@@ -6,11 +6,39 @@
 /*   By: eina <eina@student.42vienna.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:46:05 by eina              #+#    #+#             */
-/*   Updated: 2026/02/03 10:47:29 by eina             ###   ########.fr       */
+/*   Updated: 2026/02/05 16:20:30 by eina             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+char	**parse_cmd(char *arg)
+{
+	char	**tokens;
+	int		i;
+	int		j;
+
+	tokens = ft_split(arg, ' ');
+	if (!tokens)
+		return (NULL);
+	i = 0;
+	while (tokens[i])
+	{
+		if (tokens[i][0] == '\0')
+		{
+			free(tokens[i]);
+			j = i;
+			while (tokens[j])
+			{
+				tokens[j] = tokens[j + 1];
+				j++;
+			}
+		}
+		else
+			i++;
+	}
+	return (tokens);
+}
 
 static char	*fetch_env_path(char **envp)
 {
